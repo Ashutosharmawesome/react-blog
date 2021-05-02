@@ -4,8 +4,9 @@ const app = express();
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const { User } = require('./models/user');
+const config = require('./config/key')
 
-mongoose.connect('mongodb+srv://LuckySharma:abcd3210@cluster0.iuykj.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', 
+mongoose.connect(config.mongoURI, 
     {useNewUrlParser: true, useUnifiedTopology: true}).then(() => console.log('DB Connected'))
                             .catch(err => console.error(err));
 
